@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<body>
+
+<div class="example-wrapper">
+
+</div>
+
+
+  <!-- Wrap all page content here -->
+  <div id="wrap">
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">PTCC - Grupo 08</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="">Home</a>
+            </li>
+            <li class="active"><a href="">About</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a>Action</a></li>
+                <li><a>Another action</a></li>
+                <li><a>Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a>Separated link</a></li>
+                <li><a>One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="">Signup</a></li>
+            <li><a href="">Login</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- Begin page content -->
+    <main id="content" role="main" class="container">
+
+      {% block content %}
+
+<main id="content" role="main" class="container">
+
+      
+      
+      
+
+      
+
+<div class="page-header">
+  <h1>PTCC - Grupo 08 - Sensores, Arduino e Wi-fi</h1>
+</div>
+
+<p>
+  <img src="https://etec-flask.herokuapp.com/static/img/IOT_Internet_of_Things_2017.jpg">
+</p>
+
+<p class="lead">
+  Nosso sistema fará a integração de dispositivos sensores de baixo custo, gerando informações para seus usuários,
+  através de plataforma web/android. As informações serão coletadas pelos sensores, transmitidas por Bluetooth ou Wi-Fi
+  e organizadas em repositório próprio. Com os dados ordenados relatórios e gráficos serão produzidos e disponibilizados
+  em página web e/ou app Android.
+</p>
+
+<p class="lead">
+  O objetivo do trabalho é proporcionar exemplos e casos de uso de dispositivos IoT para otimização de processos e
+  disponibilização de facilidades e alertas, de forma a interferir positivamente na vida dos cidadãos.
+</p>
+
+<p class="lead">
+  Estimamos que para o desenvolvimento do projeto serão necessários 120 dias.
+</p>
+
+
+
+    </main>
+
+      {% endblock %}
+
+    </main>
+
+  </div>
+
+  <div id="footer">
+    <div class="container">
+      <p>PTCC - Grupo 08 - Sensores, Arduino e Wi-fi&copy; All Rights Reserved.</p>
+      {% block footer %}{% endblock %}
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script type="text/javascript" src="/static/js/libs/jquery-1.11.1.min.js"><\/script>')</script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+
+{% endblock %}
