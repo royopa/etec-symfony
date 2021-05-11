@@ -49,7 +49,22 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+
     <body>
-        {% block body %}{% endblock %}
+        <!-- Fixed navbar -->
+        {% include 'default/navbar.html.twig' %}
+        <style>
+            body {
+            min-height: 2000px;
+            padding-top: 70px;
+            }           
+        </style>
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        
+        <!-- Fixed navbar -->
+        {% include 'default/footer.html.twig' %}
     </body>
 </html>

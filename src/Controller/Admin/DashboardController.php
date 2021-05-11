@@ -15,6 +15,8 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
         return parent::index();
     }
 
