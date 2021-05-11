@@ -28,11 +28,11 @@
           </ul>
           <ul class="nav navbar-nav pull-right">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <li><a href="{{ url('app_logout') }}">Logout</a></li>            
+            <li><a href="{{ url('app_logout') }}">Logout</a></li>
+            <li><a>Logado como {{ app.user.email }}</a></li>             
             {% else %}
             <li><a href="{{ url('app_login') }}">Login</a></li>
             {% endif %}
-            <li><a>Logado como {{ app.user.email }}</a></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
