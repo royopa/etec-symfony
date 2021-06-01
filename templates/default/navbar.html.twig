@@ -1,40 +1,72 @@
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">PTCC - Grupo 08</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ url('index') }}">Home</a>
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">PTCC - Grupo 08</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="{{ url('index') }}">Home</a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Parâmetros
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="{{ url('user_index') }}">Usuários</a>
             </li>
+            <li class="divider"></li>
             <li>
               <a href="{{ url('sensor_index') }}">Sensores</a>
             </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">Parâmetros <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{ url('user_index') }}">Usuários</a></li>
-                <li class="divider"></li>
-                <li><a href="{{ url('sensor_index') }}">Sensores</a></li>                
-                <li class="divider"></li>
-                <li><a href="{{ url('mensagem_index') }}">Mensagens</a></li>
-              </ul>
+            <li class="divider"></li>
+            <li>
+              <a href="{{ url('mensagem_index') }}">Mensagens</a>
             </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <li><a href="{{ url('app_logout') }}">Logout</a></li>
-            <li><a>Logado como {{ app.user.email }}</a></li>             
-            {% else %}
-            <li><a href="{{ url('app_login') }}">Login</a></li>
-            {% endif %}
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">Documentos
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="{{ url('product_backlog_index') }}">Product Backlog</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="{{ url('diagrama_casos_uso_index') }}">Diagrama de Casos de Uso</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="{{ url('diagrama_classes_index') }}">Diagrama de Classes</a>
+            </li>
           </ul>
-        </div>
-        <!--/.nav-collapse -->
-      </div>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-right">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <li>
+            <a href="{{ url('app_logout') }}">Logout</a>
+          </li>
+          <li>
+            <a>Logado como
+              {{ app.user.email }}</a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{{ url('app_login') }}">Login</a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
+    <!--/.nav-collapse -->
+  </div>
+</div>
