@@ -3,36 +3,38 @@
 {% block title %}Sensor{% endblock %}
 
 {% block body %}
-    <h1>Sensor</h1>
+  <h1>Sensor</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ sensor.id }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ sensor.createdAt ? sensor.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>UpdatedAt</th>
-                <td>{{ sensor.updatedAt ? sensor.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Nome</th>
-                <td>{{ sensor.nome }}</td>
-            </tr>
-            <tr>
-                <th>TopicName</th>
-                <td>{{ sensor.topicName }}</td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>Id</th>
+        <td>{{ sensor.id }}</td>
+      </tr>
+      <tr>
+        <th>Nome</th>
+        <td>{{ sensor.nome }}</td>
+      </tr>
+      <tr>
+        <th>Tópico</th>
+        <td>{{ sensor.topicName }}</td>
+      </tr>
+      <tr>
+        <th>Habilitado</th>
+        <td>{{ sensor.isEnabled ? '<span class="text-success">Sim</span>' : 'Não' }}</td>
+      </tr>
+      <tr>
+        <th>Data de criação</th>
+        <td>{{ sensor.createdAt ? sensor.createdAt|date('d/m/Y H:i:s') : '' }}</td>
+      </tr>
+      <tr>
+        <th>Última alteração</th>
+        <td>{{ sensor.updatedAt ? sensor.updatedAt|date('d/m/Y H:i:s') : '' }}</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <a href="{{ path('sensor_index') }}">back to list</a>
+  <a href="{{ path('sensor_edit', {'id': sensor.id}) }}">Editar</a>
 
-    <a href="{{ path('sensor_edit', {'id': sensor.id}) }}">edit</a>
-
-    {{ include('sensor/_delete_form.html.twig') }}
+  {{ include('sensor/_delete_form.html.twig') }}
 {% endblock %}

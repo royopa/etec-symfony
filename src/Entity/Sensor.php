@@ -55,6 +55,13 @@ class Sensor
     private $topicName;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_enabled", type="boolean", nullable=true, options={"default":"1"})
+     */
+    private $isEnabled;
+
+    /**
      * Get the value of id
      *
      * @return  integer
@@ -170,6 +177,30 @@ class Sensor
     public function setTopicName(string $topicName)
     {
         $this->topicName = $topicName;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of isEnabled
+     *
+     * @return  bool
+     */ 
+    public function getIsEnabled()
+    {
+        return $this->isEnabled;
+    }
+
+    /**
+     * Set the value of isEnabled
+     *
+     * @param  bool  $isEnabled
+     *
+     * @return  self
+     */ 
+    public function setIsEnabled(bool $isEnabled)
+    {
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }

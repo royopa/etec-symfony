@@ -12,10 +12,9 @@ class SensorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('createdAt')
-            ->add('updatedAt')
             ->add('nome')
             ->add('topicName')
+            ->add('isEnabled')
         ;
     }
 

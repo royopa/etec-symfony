@@ -54,7 +54,7 @@ class MensagemController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="mensagem_show", methods={"GET"})
+     * @Route("/{id}/show", name="mensagem_show", methods={"GET"})
      */
     public function show(Mensagem $mensagem): Response
     {
@@ -96,4 +96,37 @@ class MensagemController extends AbstractController
 
         return $this->redirectToRoute('mensagem_index');
     }
+
+    /**
+     * @Route("/temperatura/{limit}", name="mensagem_temperatura", methods={"GET"})
+     */
+    public function temperatura(Request $request, $limit=100): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
+        $mensagems = $this->getDoctrine()
+            ->getRepository(Mensagem::class)
+            ->findBy(['topicName'=>'cli-mlk-002-pub/temperature']);
+
+        return $this->render('mensagem/temperatura.html.twig', [
+            'mensagems' => $mensagems,
+        ]);
+    }    
+
+    /**
+     * @Route("/umidade/{limit}", name="mensagem_umidade", methods={"GET"})
+     */
+    public function umidade(Request $request, $limit=100): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
+        $mensagems = $this->getDoctrine()
+            ->getRepository(Mensagem::class)
+            ->findBy(['topicName'=>'cli-mlk-002-pub/humidity'])
+            ;
+
+        return $this->render('mensagem/umidade.html.twig', [
+            'mensagems' => $mensagems,
+        ]);
+    }       
 }
