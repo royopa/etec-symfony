@@ -54,6 +54,9 @@
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
+        "deploy": [
+            "./vendor/banago/phploy/bin/phploy"
+        ],
         "post-install-cmd": [
             "@auto-scripts"
         ],
